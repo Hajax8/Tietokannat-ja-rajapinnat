@@ -1,0 +1,17 @@
+a)select * from language order by name;
+
+b)mysql> select title from film f
+	  -> join film_actor fa on fa.film_id=f.film_id
+      -> join actor a on a.actor_id=fa.actor_id where last_name like 'Temple';
+	  
+c)mysql> select first_name,last_name from film f join film_actor fa on fa.film_id=f.film_id
+	  -> join actor a on a.actor_id=fa.actor_id where title like 'Ghost Groundhog';
+	  
+d)mysql> select count(*) from film_category fc
+      -> join category c on c.category_id=fc.category_id
+      -> where name like 'Horror';
+	  
+e)mysql> select title from film_category fc
+      -> join category c on c.category_id=fc.category_id
+      -> join film f on f.film_id=fc.film_id
+      -> where name like 'Horror';

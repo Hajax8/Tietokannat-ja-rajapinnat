@@ -1,0 +1,32 @@
+a)select * from employees order by last_name limit 10;
+
+b)select * from employees order by last_name, first_name limit 10;
+
+c)select * from employees order by hire_date desc limit 5;
+
+d)select first_name,last_name from salaries join employees on employees.emp_no=salaries.emp_no order by salary desc limit 1;
+
+e)select first_name,last_name from salaries join employees on employees.emp_no=salaries.emp_no order by salary limit 1;
+
+f)select distinct first_name,last_name from employees a join salaries b on a.emp_no = b.emp_no where salary>150000;
+
+g)select count(*) emp_no from current_dept_emp a join departments b on a.dept_no = b.dept_no where dept_name like 'Sales';
+  select count(*) emp_no from current_dept_emp a join departments b on a.dept_no = b.dept_no where dept_name like 'Marketing';
+
+h)mysql> select first_name,last_name,dept_name from employees a 
+	  ->join dept_manager b on a.emp_no=b.emp_no 
+	  ->join departments c on b.dept_no=c.dept_no;
+		 
+i)mysql> select avg(salary) from employees a join salaries b on a.emp_no=b.emp_no
+	  -> join dept_emp c on c.emp_no=b.emp_no
+      -> join departments d on d.dept_no=c.dept_no where dept_name like 'Sales';
+	  
+  mysql> select avg(salary) from employees a join salaries b on a.emp_no=b.emp_no
+	  -> join dept_emp c on c.emp_no=b.emp_no
+      -> join departments d on d.dept_no=c.dept_no where dept_name like 'Marketing';
+	
+	
+
+
+
+

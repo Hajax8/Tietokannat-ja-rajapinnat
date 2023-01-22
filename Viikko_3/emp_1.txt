@@ -1,0 +1,16 @@
+5. Employees, osa 1
+
+a) select distinct dept_name from departments;
+
+b) select distinct title from titles;
+
+c) select max(salary) from salaries;
+   select min(salary) from salaries;
+
+d) select avg(salary) from salaries;
+
+e) select * from employees where last_name = 'Facello';
+
+f)select count(*) birth_date from employees where birth_date >'1949-12-31' and birth_date < '1960-01-01'
+
+g)select gender,count(*) from employees group by gender;
