@@ -1,0 +1,13 @@
+1) mysql> SELECT etunimi,sukunimi from opiskelija o join arviointi a on a.idopiskelija = o.idopiskelija where arvosana = 0;
+
+2) mysql> select etunimi, sukunimi from opiskelija o join arviointi a on a.idopiskelija=o.idopiskelija
+	   -> join opintojakso oj on oj.idopintojakso=a.idopintojakso where (nimi like 'Fysiikka 3' and arvosana > 0);
+	   
+3)mysql> select nimi from opiskelija o join arviointi a on a.idopiskelija=o.idopiskelija
+      -> join opintojakso oj on oj.idopintojakso=a.idopintojakso where (etunimi like 'Hessu');
+	  
+4)mysql> select avg(arvosana) from opiskelija o join arviointi a on a.idopiskelija=o.idopiskelija
+      -> join opintojakso oj on oj.idopintojakso=a.idopintojakso where (etunimi like 'Aku');
+	  
+5)mysql> select nimi from opintojakso oj left join arviointi a on oj.idopintojakso=a.idopintojakso
+      -> where a.idopintojakso is null;

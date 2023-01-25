@@ -1,0 +1,41 @@
+mysql> select * FROM Opintojakso;
++---------------+----------+---------+--------------------------+
+| idOpintojakso | Koodi    | Laajuus | Nimi                     |
++---------------+----------+---------+--------------------------+
+|             1 | YNG2269  |       5 | Olio-ohjelmointi         |
+|             2 | YNG48449 |       5 | Tietokannat              |
+|             3 | TVA80069 |       4 | Liike-elaman tapatietous |
+|             4 | TVA74489 |       3 | Fysiikka 3               |
+|             5 | TVA73320 |       9 | Kellarihumppa            |
+|             6 | TVA96615 |       3 | IT ruotsi                |
+|             8 | RTA43325 |       2 | Elektroniikna persuteet  |
++---------------+----------+---------+--------------------------+
+
+mysql> select*from opiskelija;
++--------------+---------+----------+--------------+-----------------+
+| idOpiskelija | Etunimi | Sukunimi | Luokkatunnus | Osoite          |
++--------------+---------+----------+--------------+-----------------+
+|            1 | Aku     | Ankka    | TVT22SPL     | Paratiisitie 13 |
+|            2 | Roope   | Ankka    | TVT22SPO     | Ankkakatu 8     |
+|            4 | Iines   | Ankka    | TVT22SPL     | Ankkakatu 4     |
+|            5 | Hannu   | Hanhi    | TVT22SPL     | Hanhitie 2      |
+|            6 | Hessu   | Hopo     | TVT21KMO     | Kuikkakuja 91   |
++--------------+---------+----------+--------------+-----------------+
+
+mysql> select etunimi,sukunimi,arvosana,paivamaara,nimi from Arviointi 
+	   JOIN Opiskelija on Opiskelija.idOpiskelija = Arviointi.idOpiskelija 
+	   JOIN Opintojakso on Opintojakso.idOpintojakso = Arviointi.idOpintojakso;
++---------+----------+----------+------------+--------------------------+
+| etunimi | sukunimi | arvosana | paivamaara | nimi                     |
++---------+----------+----------+------------+--------------------------+
+| Aku     | Ankka    |        1 | 2023-01-24 | Olio-ohjelmointi         |
+| Aku     | Ankka    |        4 | 2023-01-24 | Tietokannat              |
+| Roope   | Ankka    |        1 | 2023-01-24 | Liike-elaman tapatietous |
+| Iines   | Ankka    |        4 | 2023-01-24 | Kellarihumppa            |
+| Hessu   | Hopo     |        1 | 2023-01-24 | Elektroniikna persuteet  |
+| Hannu   | Hanhi    |        5 | 2023-01-24 | Elektroniikna persuteet  |
+| Iines   | Ankka    |        4 | 2023-01-24 | Elektroniikna persuteet  |
+| Roope   | Ankka    |        4 | 2023-01-24 | IT ruotsi                |
+| Hessu   | Hopo     |        4 | 2023-01-24 | IT ruotsi                |
+| Aku     | Ankka    |        5 | 2023-01-24 | IT ruotsi                |
++---------+----------+----------+------------+--------------------------+
